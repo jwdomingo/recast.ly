@@ -11,7 +11,7 @@ class VideoListEntry extends React.Component {
 
     return (<div className="video-list-entry" style={style}>
     <div className="media-left media-middle">
-      <img className="media-object" src={vSource} alt="" />
+      <img className="media-object" src={vSource} alt="" onClick={this.props.listener.bind(this, vData)} />
     </div>
     <div className="media-body">
       <div className="video-list-entry-title" onClick={this.props.listener.bind(this, vData)} >{vTitle}</div>
