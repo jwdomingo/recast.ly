@@ -14,17 +14,24 @@ class App extends React.Component {
     });
   }
 
+  onSearch(playlistArray){
+    this.setState({
+      playlist: playlistArray
+    });
+    console.log("state", this.state);
+  }
+
   render(){
-    return (<div>
-      <Nav/>
+    return <div>
+      <Nav callback={(playlist) => this.onSearch(playlist)}/>
       <div className="col-md-7">
         <VideoPlayer video={this.state.video}/>
       </div>
       <div className="col-md-5">
-        <VideoList playlist={this.state.playlist} video={this.state.video} listener={this.onVideoListEntryClick.bind(this)}/>
+        <VideoList playlist={this.state.playlist} video={this.state.video} listener={(video) => this.onVideoListEntryClick(video)}/>
 
       </div>
-    </div>);
+    </div>
   };
 }
 
