@@ -4,7 +4,7 @@ class App extends React.Component {
 
     this.state = {
       playlist: window.exampleVideoData,
-      video: window.exampleVideoData[0]
+      video: ''
     };
   }
 
@@ -28,7 +28,7 @@ class App extends React.Component {
         <VideoPlayer video={this.state.video}/>
       </div>
       <div className="col-md-5">
-        <VideoList playlist={this.state.playlist} video={this.state.video} listener={(video) => this.onVideoListEntryClick(video)}/>
+        <VideoList playlist={this.state.playlist} video={this.state.video} listener={(vid) => this.onVideoListEntryClick(vid)}/>
 
       </div>
     </div>
