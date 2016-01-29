@@ -22,11 +22,10 @@ class App extends React.Component {
 
   componentWillMount(){
     var options = {
-      query: 'epic wins',
+      query: 'rick astley',
       max: 5,
       key: window.YOUTUBE_API_KEY
     };
-    console.log("rendered!");
     searchYouTube(options, (pList) => this.onSearch(pList));    
   }
 

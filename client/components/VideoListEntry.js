@@ -1,25 +1,23 @@
-class VideoListEntry extends React.Component {
-  render() {
-    var vData = this.props.videoEntry;
-    var vSource = vData.snippet.thumbnails.default.url;
-    var vTitle = vData.snippet.title;
-    var vDesc = vData.snippet.description;
+var VideoListEntry = ({video, videoEntry, listener}) => {
+    var vSource = videoEntry.snippet.thumbnails.default.url;
+    var vTitle = videoEntry.snippet.title;
+    var vDesc = videoEntry.snippet.description;
 
     var style = {
-      backgroundColor: this.props.video === this.props.videoEntry ? 'pink' : 'white'
+      backgroundColor: video === videoEntry ? 'pink' : 'white'
     };
 
-    return (<div className="video-list-entry" style={style}>
-    <div className="media-left media-middle">
-      <img className="media-object" src={vSource} alt="" onClick={() => this.props.listener(vData)} />
-    </div>
-    <div className="media-body">
-      <div className="video-list-entry-title" onClick={() => this.props.listener(vData)} >{vTitle}</div>
-      <div className="video-list-entry-detail">{vDesc}</div>
-    </div>
-  </div>);
-  }
-}
+  return (
+    <div className="video-list-entry" style={style}>
+      <div className="media-left media-middle">
+        <img className="media-object" src={vSource} alt="" onClick={() => listener(videoEntry)} />
+      </div>
+      <div className="media-body">
+        <div className="video-list-entry-title" onClick={() => listener(videoEntry)} >{vTitle}</div>
+        <div className="video-list-entry-detail">{vDesc}</div>
+      </div>
+    </div>);
+};
 
 window.VideoListEntry = VideoListEntry;
 
