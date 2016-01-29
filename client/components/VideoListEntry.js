@@ -6,7 +6,7 @@ class VideoListEntry extends React.Component {
     var vDesc = vData.snippet.description;
 
     var style = {
-      backgroundColor: this.props.video === this.props.videoEntry ? 'yellow' : 'white'
+      backgroundColor: this.props.video === this.props.videoEntry ? 'pink' : 'white'
     };
 
     return (<div className="video-list-entry" style={style}>

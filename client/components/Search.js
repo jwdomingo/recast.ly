@@ -8,7 +8,7 @@ class Search extends React.Component{
           max: 5,
           key: window.YOUTUBE_API_KEY
         };
-
+        searchYouTube = _.throttle(searchYouTube, 400);
         searchYouTube(options,this.props.callback)}
         }
       />

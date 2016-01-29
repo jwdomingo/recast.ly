@@ -3,7 +3,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      playlist: window.exampleVideoData,
+      playlist: [],
       video: ''
     };
   }
@@ -18,7 +18,16 @@ class App extends React.Component {
     this.setState({
       playlist: playlistArray
     });
-    console.log("state", this.state);
+  }
+
+  componentWillMount(){
+    var options = {
+      query: 'epic wins',
+      max: 5,
+      key: window.YOUTUBE_API_KEY
+    };
+    console.log("rendered!");
+    searchYouTube(options, (pList) => this.onSearch(pList));    
   }
 
   render(){
